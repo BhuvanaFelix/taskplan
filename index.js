@@ -45,4 +45,20 @@ const validateTaskForm = () =>{
         alert("Please select Status of project");
        // document.getElementById("formAssigned").focus();
     } 
-} 
+};
+
+// Display Date
+// let dt = new Date();
+//    document.getElementById("dateTime").innerHTML=dt;
+
+// {let dt = new Date();
+//    document.getElementById('displayDate').innerHTML = dt;}
+
+// displayDate = new Date().toLocaleDateString();
+// document.write(displayDate);
+
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
