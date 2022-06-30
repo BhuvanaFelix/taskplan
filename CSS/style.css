@@ -1,0 +1,16 @@
+.main-container{
+    background-color: #FFFFFF;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.todo-box{
+    padding: 40px;
+    background-image: url(../assets/images/note.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.myheader{
+    background-color: #0d6efd;
+}

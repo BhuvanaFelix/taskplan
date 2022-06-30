@@ -1,31 +1,209 @@
 <!Doctype html>
-    <head>
-        <title>Task creator</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-        <link rel="stylesheet" href="/CSS/bootstrap.css">
-    </head>
-    <header class="bg-warning">
-        <h1 class="display-1 text-center text-white py-5">Task Creator</h1>
-    </header>    
-    <body class="bg-secondary">
-       <div>
-        <p class="today bg-warning float-right w-100 text-white p-3 mt-0"
-        >Current Date: <span id='current_date'></span></p>
-       </div>
-        <div class="container rounded bg-light w-50">
-            <div class="row mx-auto">
-                <div class="col mb-5 py-5">
-                <h2 class="display-3 text-center">Create A Task</h2>
+
+<head>
+    <title>Task creator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/bootstrap.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+    <header class="myheader">
+        <h1 class="display-1 text-center text-white py-5">To do List</h1>
+    </header>
+    <div class="main-container">
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-3 text-center"> 
+                <div class="py-3">
+                    Current Date: <span id='current_date'></span>
+                </div>
+                <object type="image/svg+xml" data="assets/images/add.svg" style="width:50%">
+                    <!-- Your fall back here -->
+                    <img src="assets/images/add.svg" />
+                </object>
+                <br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Create a Task
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="column mb-5">
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a href="task.html" class="btn btn-outline-secondary btn-lg px-4" >Add</a>
-                    </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
                 </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="todo-box">
+                    <h5 class="card-title">Task</h5>
+                    <p class="card-text">
+                        Creating Task Name: New task
+                        <br>
+                        Description: example description
+                        <br>
+                        Assigned to: Ando
+                        <br>
+                        Date: 19/06/2022
+                        <br>
+                        Status: In progress
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="card mx-auto ">
+            
+            
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="container">
+                        <div class="row mx-auto py-3">
+                            <div class="mb-3">
+                                <span>Creating Task</span>
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="name" onblur="myvalidate(this)" class="form-control" id="name">
+                                <p id="validateName"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" rows="3" id="description"></textarea>
+                                <p id="validateDescription"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="assigned" class="form-label">Assigned To</label>
+                                <!--Select Dropdown-->
+                                <select class="form-select" id="formAssigned" aria-label="Assigned">
+                                    <option selected>Open select menu</option>
+                                    <option value="1">Ando</option>
+                                    <option value="2">Bhuvana</option>
+                                    <option value="3">Edom</option>
+                                    <option value="3">Livia</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <span>Date</span>
+                                <label for="date" class="form-label">Name</label>
+                                <input type="date" name="date" class="form-control" id="date">
+                            </div>
+                            <div class="mb-3">
+                                <span>Status</span>
+                                <label for="status" class="form-label">Name</label>
+                                <select class="form-select" id="status" name="status" aria-label="Assigned">
+                                    <option selected>Open select menu</option>
+                                    <option value="Done">Done</option>
+                                    <option value="InProgress">In progress</option>
+                                    <option value="NotYetStarted">Not Yet Started</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" id="saveBtn" onclick="validateTaskForm()" class="btn btn-primary"
+                                    style="float:right">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
             </div>
         </div>
-        <script type="text/javascript" src="./index.js"></script>   
-    </body>
+    </div>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

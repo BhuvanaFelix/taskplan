@@ -1,3 +1,12 @@
+const myvalidate = (obj) => {
+
+    if(obj.value == "" || obj.value.length < 8)
+        obj.classList.add("is-invalid");
+    else
+       obj.classList.remove("is-invalid");
+
+}
+
 const validateTaskForm = () =>{
     let name = document.getElementById("name").value;
     let description = document.getElementById("description").value;
