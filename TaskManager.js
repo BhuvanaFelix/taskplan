@@ -17,7 +17,7 @@ class TaskManager {
     } 
 };
 
-let myName = document.getElementById("name");
+let myName = document.getElementById("name").value;
 let myDescription = document.getElementById("description").value;
 let myAssignedTo = document.getElementById("formAssigned").value;
 let myDueDate = document.getElementById("date").value;

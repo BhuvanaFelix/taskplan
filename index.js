@@ -43,14 +43,11 @@ const validateTaskForm = () =>{
     //validatation for duedate
     //    let UserDate = document.getElementById("userdate").value;
         let theDate = new Date().getTime();
-        let anotherDate = new Date("6/24/2022").getTime();
+        let anotherDate = new Date(document.getElementById("date").value).getTime();
 
         if(theDate > anotherDate) {
             alert("You've entered a date that has already been!")
-        } else {
-            alert("That date is perfectly valid!")
-        };
-    
+        } 
     //     let toDate = null;
     //     toDate = new Date(); 
     //    if (toDate !== '' || new Date(dueDate).getTime() <= toDate.getTime()) {
@@ -79,4 +76,4 @@ date = new Date();
 year = date.getFullYear();
 month = date.getMonth() + 1;
 day = date.getDate();
-document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
+console.log (document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year);
