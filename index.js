@@ -41,13 +41,22 @@ const validateTaskForm = () =>{
     }
 
     //validatation for duedate
-    //    var UserDate = document.getElementById("userdate").value;
-        let toDate = null;
-        toDate = new Date(); 
-       if (toDate !== '' || new Date(dueDate).getTime() <= toDate.getTime()) {
-              alert("Please select duedate that is bigger or Equal to today");
-              return false;
-         } 
+    //    let UserDate = document.getElementById("userdate").value;
+        let theDate = new Date().getTime();
+        let anotherDate = new Date("6/24/2022").getTime();
+
+        if(theDate > anotherDate) {
+            alert("You've entered a date that has already been!")
+        } else {
+            alert("That date is perfectly valid!")
+        };
+    
+    //     let toDate = null;
+    //     toDate = new Date(); 
+    //    if (toDate !== '' || new Date(dueDate).getTime() <= toDate.getTime()) {
+    //           alert("Please select duedate that is bigger or Equal to today");
+    //           return false;
+    //      } 
 
     //Validate Status
     if(status.selectedIndex == 0){
@@ -70,4 +79,4 @@ date = new Date();
 year = date.getFullYear();
 month = date.getMonth() + 1;
 day = date.getDate();
-document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
