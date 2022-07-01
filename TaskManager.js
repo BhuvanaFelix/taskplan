@@ -44,7 +44,7 @@ class TaskManager {
   
                     function mylist(item, index) //getting each todo list array index key
                     {
-                    lineItem += '<div class="todo-box"><h5 class="card-title">'+item.name+'</h5><p class="card-text"><br> Task Name:  <br>Description :'+ item.description+' <br>Assigned to:'+ item.assignedTo+'<br>Date: 19/06/2022<br>Status: '+ item.status+'</p></div>';
+                    lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">'+item.name+'</h5><p class="card-text"><br> Task Name:  <br>Description :'+ item.description+' <br>Assigned to:'+ item.assignedTo+'<br>Date: 19/06/2022<br>Status: '+ item.status+'</p></div>';
                     }
             }
   
