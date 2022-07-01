@@ -4,8 +4,9 @@
     <title>Task creator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/bootstrap.css">
-    <link rel="stylesheet" href="/CSS/style.css">
+        <link rel="stylesheet" href="/CSS/style.css">
+        <link rel="stylesheet" href="/CSS/bootstrap.css">
+    
 </head>
 
 <body>
@@ -24,115 +25,18 @@
                     <img src="assets/images/add.svg" />
                 </object>
                 <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
                     Create a Task
                 </button>
             </div>
             <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
+                <div id="myToDoList"></div>
             </div>
-            <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3">
-                <div class="todo-box">
-                    <h5 class="card-title">Task</h5>
-                    <p class="card-text">
-                        Creating Task Name: New task
-                        <br>
-                        Description: example description
-                        <br>
-                        Assigned to: Ando
-                        <br>
-                        Date: 19/06/2022
-                        <br>
-                        Status: In progress
-                    </p>
-                </div>
-            </div>
-            
-        </div>
-        <div class="card mx-auto ">
-            
-            
+
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

@@ -60,6 +60,9 @@ const validateTaskForm = () =>{
         alert("Please select Status of project");
        // document.getElementById("formAssigned").focus();
     } 
+    //included the function in taskmanager.js to store values
+    
+    homeworkTask.storeValue()
 };
 
 // Display Date
