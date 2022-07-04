@@ -43,7 +43,7 @@ class TaskManager {
 
         function createTaskHtml(item, index) //getting each todo list array index key
         {
-            lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description : </b>' + item.description + ' <br><b>Assigned to:</b>' + item.assignedTo + '<br><b>Date: </b> '+item.dueDate+ '<br><b>Status: </b>' + item.status + '</p></div>';
+            lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> '+item.dueDate+ '<br><b>Status: </b>' + item.status + '</p></div>';
         }
     }
 
