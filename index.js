@@ -1,55 +1,61 @@
 const myvalidate = (obj) => {
 
-    if(obj.value == "" || obj.value.length < 8)
+    if (obj.value == "" || obj.value.length < 8)
         obj.classList.add("is-invalid");
     else
-       obj.classList.remove("is-invalid");
+        obj.classList.remove("is-invalid");
 
 }
 
-const validateTaskForm = () =>{
+const validateTaskForm = () => {
     let name = document.getElementById("name").value;
     let description = document.getElementById("description").value;
-    let formAssigned =  document.getElementById("formAssigned");
-    //let formatDate = document.getElementById("date").value;
-    var dueDate = document.getElementById("date").value;
-    //var dueDate = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+    let formAssigned = document.getElementById("formAssigned");
+    let dueDate = document.getElementById("date").value;
+    //using to convert string to date format in dd/mm/yyyy
+    /*let dueDate = new Date(document.getElementById("date").value);
+    yyyy = dueDate.getFullYear();
+    mm = dueDate.getMonth() + 1;
+    dd = dueDate.getDate();
+    dueDate = dd + '/' + mm + '/' + yyyy;
+    console.log(dueDate);*/
+    /////////////////////////////////////////////////////////////////////////////////
     let status = document.getElementById("status");
     //Validate Name 
-    if(name === ""){
+    if (name === "") {
         alert("Please enter your name");
-    }else if(name.length < 8){
-       let text = "Please enter more than 8 characters."
-       document.getElementById("validateName").innerHTML = text;
-       //alert("Please enter more than 8 characters");
-    }else{
+    } else if (name.length < 8) {
+        let text = "Please enter more than 8 characters."
+        document.getElementById("validateName").innerHTML = text;
+        //alert("Please enter more than 8 characters");
+    } else {
         document.getElementById("name").innerHTML = name;
     }
     //Validate Description
-    if(description === ""){
+    if (description === "") {
         alert("Please enter description");
-    }else if(description.length < 15){
-       let textdesc = "Please enter more than 15 characters."
-       document.getElementById("validateDescription").innerHTML = textdesc;
-       //alert("Please enter  more than 15 characters");
-    }else{
+    } else if (description.length < 15) {
+        let textdesc = "Please enter more than 15 characters."
+        document.getElementById("validateDescription").innerHTML = textdesc;
+        //alert("Please enter  more than 15 characters");
+    } else {
         document.getElementById("description").innerHTML = description;
     }
     //Validate Assigned to
-    if(formAssigned.selectedIndex == 0){
+    if (formAssigned.selectedIndex == 0) {
         alert("Please select Assigning name!!!");
-       // document.getElementById("formAssigned").focus();
+        // document.getElementById("formAssigned").focus();
         return false;
     }
 
     //validatation for duedate
     //    let UserDate = document.getElementById("userdate").value;
-        let theDate = new Date().getTime();
-        let anotherDate = new Date(document.getElementById("date").value).getTime();
+    let theDate = new Date().getTime();
+    let anotherDate = new Date(document.getElementById("date").value).getTime();
 
-        if(theDate > anotherDate) {
-            alert("You've entered a date that has already been!")
-        } 
+    if (theDate > anotherDate) {
+        alert("You've entered a date that has already been!")
+    }
     //     let toDate = null;
     //     toDate = new Date(); 
     //    if (toDate !== '' || new Date(dueDate).getTime() <= toDate.getTime()) {
@@ -58,19 +64,16 @@ const validateTaskForm = () =>{
     //      } 
 
     //Validate Status new Date ('2022-04')
-    if(status.selectedIndex == 0){
+    if (status.selectedIndex == 0) {
         alert("Please select Status of project");
-       // document.getElementById("formAssigned").focus();
-    } 
+        // document.getElementById("formAssigned").focus();
+    }
     //included the function in taskmanager.js to store values
-    
+
     homeworkTask.storeValue()
-    
-year = dueDate.getFullYear();
-month = dueDate.getMonth() + 1;
-day = dueDate.getDate();
-formattedDate = day + "/" + month + "/" + year;
-console.log("formatted date" +formattedDate);
+
+
+
 };
 
 // Display Date
