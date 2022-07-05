@@ -51,12 +51,12 @@
                                 <span>Task</span>
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" name="name" onblur="myvalidate(this)" class="form-control" id="name">
-                                <p id="validateName"></p>
+                                <span id="validateName"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" rows="3" id="description"></textarea>
-                                <p id="validateDescription"></p>
+                                <span id="validateDescription"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="assigned" class="form-label">Assigned To</label>
@@ -68,11 +68,13 @@
                                     <option value="Edom">Edom</option>
                                     <option value="Livia">Livia</option>
                                 </select>
+                                <span id="validateAssigned"></span>
                             </div>
                             <div class="mb-3">
                                 <span>Date</span>
                                 <label for="date" class="form-label">Name</label>
-                                <input type="date" name="date" class="form-control" id="date">
+                                <input type="date" name="date" class="form-control" id="date"><br>
+                                <span id="validateDate"></span>
                             </div>
                             <div class="mb-3">
                                 <span>Status</span>
@@ -83,9 +85,10 @@
                                     <option value="InProgress">In progress</option>
                                     <option value="NotYetStarted">Not Yet Started</option>
                                 </select>
+                                <span id="validateStatus"></span>
                             </div>
                             <div>
-                                <button type="button" id="saveBtn" onclick="validateTaskForm()" class="btn btn-primary"
+                                <button type="button" id="saveBtn"  class="btn btn-primary"
                                     style="float:center">Save</button>
                             </div>
                         </div>
