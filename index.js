@@ -11,7 +11,9 @@ const validateTaskForm = () =>{
     let name = document.getElementById("name").value;
     let description = document.getElementById("description").value;
     let formAssigned =  document.getElementById("formAssigned");
-    let dueDate = document.getElementById("date").value;
+    //let formatDate = document.getElementById("date").value;
+    var dueDate = document.getElementById("date").value;
+    //var dueDate = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
     let status = document.getElementById("status");
     //Validate Name 
     if(name === ""){
@@ -55,7 +57,7 @@ const validateTaskForm = () =>{
     //           return false;
     //      } 
 
-    //Validate Status
+    //Validate Status new Date ('2022-04')
     if(status.selectedIndex == 0){
         alert("Please select Status of project");
        // document.getElementById("formAssigned").focus();
@@ -63,6 +65,12 @@ const validateTaskForm = () =>{
     //included the function in taskmanager.js to store values
     
     homeworkTask.storeValue()
+    
+year = dueDate.getFullYear();
+month = dueDate.getMonth() + 1;
+day = dueDate.getDate();
+formattedDate = day + "/" + month + "/" + year;
+console.log("formatted date" +formattedDate);
 };
 
 // Display Date
@@ -74,9 +82,3 @@ const validateTaskForm = () =>{
 
 // displayDate = new Date().toLocaleDateString();
 // document.write(displayDate);
-
-date = new Date();
-year = date.getFullYear();
-month = date.getMonth() + 1;
-day = date.getDate();
-console.log (document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year);
