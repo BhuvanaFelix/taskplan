@@ -1,3 +1,11 @@
+//Display current date
+let currentDate = new Date()
+let yyyy = currentDate.getFullYear();
+let mm = currentDate.getMonth() + 1;
+let dd = currentDate.getDate();
+currentDate = dd + '/' + mm + '/' + yyyy;
+document.getElementById('current_date').innerHTML = currentDate;
+
 const myvalidate = (obj) => {
 
     if (obj.value == "" || obj.value.length < 8)
@@ -8,7 +16,7 @@ const myvalidate = (obj) => {
 }
 
 saveBtn.addEventListener('click', (event) => {
-//const validateTaskForm = () => {
+    //const validateTaskForm = () => {
     event.preventDefault();
     let name = document.getElementById("name").value;
     let description = document.getElementById("description").value;
@@ -25,7 +33,7 @@ saveBtn.addEventListener('click', (event) => {
     else if (description === "" || description.length < 15 || description == null) {
         let textdesc = "Enter value more than 15 characters."
         document.getElementById("validateDescription").innerHTML = textdesc;
-    } 
+    }
     //Validate Assigned to
     else if (formAssigned.selectedIndex == "" || formAssigned.selectedIndex == 0) {
         let textAssigned = "Assign a task owner";
@@ -33,7 +41,7 @@ saveBtn.addEventListener('click', (event) => {
         //document.getElementById("formAssigned").focus();
         return false;
     }//validatation for duedate
-    else if( dueDate == "" || dueDate == null || theDate > anotherDate){
+    else if (dueDate == "" || dueDate == null || theDate > anotherDate) {
         let UserDate = "Duedate required and should be greator than today";
         //alert("You've entered a date that has already been!")
         document.getElementById("validateDate").innerHTML = UserDate;
@@ -45,8 +53,8 @@ saveBtn.addEventListener('click', (event) => {
         // document.getElementById("formAssigned").focus();
     }
     //included the function in taskmanager.js to store values   
-    else{
-    homeworkTask.storeValue()
+    else {
+        homeworkTask.storeValue()
     }
 
 }, false)
