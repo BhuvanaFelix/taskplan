@@ -51,38 +51,16 @@ class TaskManager {
 
         function createTaskHtml(item, index) //getting each todo list array index key
         {
-<<<<<<< HEAD
-            lineItem += '<div class="todo-box '+item.status+' col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success '+item.status+'hide" onclick = "homeworkTask.DoneToDo(' + index + ')">Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
-=======
             lineItem += '<div class="todo-box '+ item.status +' col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success '+ item.status +'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
->>>>>>> refs/remotes/origin/main
 
         }
 
     }
-<<<<<<< HEAD
-
-    
-    DoneToDo = (index) => {
-        alert(index);
-        let toDO = this.allInfo[index];
-        this.allInfo[index].status = "Done"
-        localStorage.setItem("allInfo", JSON.stringify(this.allInfo));
-        homeworkTask.render();
-        /*
-        tasks.forEach((item) => {
-            if (item.id === index) {
-                
-              }
-        })
-        //$('#createModal').modal('show');
-*/
-=======
     DoneToDo = (index) => {
         this.tasks[index].status = "Done";
         localStorage.setItem("tasks", JSON.stringify(this.tasks));
         homeworkTask.render();
->>>>>>> refs/remotes/origin/main
+
     }
     
 

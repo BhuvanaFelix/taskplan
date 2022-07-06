@@ -26,13 +26,6 @@
     background-color: #0d6efd;
     background-image: url(../assets/images/bgm.jpg);
 }
-<<<<<<< HEAD
-.Done{
-    background-image: url(../assets/images/bgm.jpg); 
-}
-.Donehide{
-    display: none;
-=======
 
 #validateName, #validateDescription, #validateAssigned, #validateDate, #validateStatus {
     color: red;
@@ -69,5 +62,4 @@
 
 body {
     background: #dccef0;
->>>>>>> refs/remotes/origin/main
 }
