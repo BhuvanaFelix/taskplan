@@ -16,3 +16,9 @@
     background-color: #0d6efd;
     background-image: url(../assets/images/bgm.jpg);
 }
+.Done{
+    background-image: url(../assets/images/bgm.jpg); 
+}
+.Donehide{
+    display: none;
+}
