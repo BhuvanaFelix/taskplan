@@ -1,0 +1,6 @@
+1) DONE! Style "Save" button in modal and move to the right - possibly make it a bit larger
+2) Style Mark as Done and Delete buttons - center it!
+3) Remove validate messages if properly validated
+4) Change colour/style of status for Done & In Progress
+5) When Mark as Done button is clicked, status is removed and stickynote or color is changed
+6) Change background color/image to match header

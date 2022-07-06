@@ -1,5 +1,5 @@
 .main-container{
-    background-color: #FFFFFF;
+    background-color: #dccef0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,13 +12,62 @@
     background-size: 100% 100%;
     float: left;
 }
+
+.todo-box-done{
+    padding: 40px;
+    background-image: url(../assets/images/green-note.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: left;
+}
+
 .myheader{
     background-color: #0d6efd;
     background-image: url(../assets/images/bgm.jpg);
 }
+<<<<<<< HEAD
 .Done{
     background-image: url(../assets/images/bgm.jpg); 
 }
 .Donehide{
     display: none;
+=======
+
+#validateName, #validateDescription, #validateAssigned, #validateDate, #validateStatus {
+    color: red;
+}
+
+/* HTML style */
+#create-a-task {
+    margin: 0 auto;
+    color: #5972b5;
+}
+
+/* STYLE BUTTONS */
+#saveBtn {
+    float: right;
+    padding: 0.75em 2em;
+    font-size: 1.1rem;
+    background-color: #5972b5;
+    border: #5972b5;
+}
+
+/* MODAL DESIGN */
+.modal-header {
+    background-color: #5972b5;
+    color: white;
+}
+
+.Done{
+    background-image: url(../assets/images/green-note.png); 
+}
+
+.Donehide{
+    display: none;
+}
+
+body {
+    background: #dccef0;
+>>>>>>> refs/remotes/origin/main
 }
