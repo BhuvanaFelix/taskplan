@@ -34,7 +34,7 @@
 /* HTML style */
 #create-a-task {
     margin: 0 auto;
-    color: #8893d1;
+    color: #5972b5;
 }
 
 /* STYLE BUTTONS */
@@ -42,11 +42,24 @@
     float: right;
     padding: 0.75em 2em;
     font-size: 1.1rem;
-    background-color: #5baede;
-    border: #5baede;
+    background-color: #5972b5;
+    border: #5972b5;
 }
 
 /* MODAL DESIGN */
 .modal-header {
-    background-color: #8893d1;
+    background-color: #5972b5;
+    color: white;
+}
+
+.Done{
+    background-image: url(../assets/images/green-note.png); 
+}
+
+.Donehide{
+    display: none;
+}
+
+body {
+    background: #dccef0;
 }

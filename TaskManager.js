@@ -6,12 +6,12 @@ class TaskManager {
         this.assignedTo = assignedTo;
         this.dueDate = dueDate;
         this.status = status;
-        this.allInfo = this.getlocalstorage(); //calling local storage
+        this.tasks = this.getlocalstorage(); //calling local storage
 
     }
     //function to 
     getlocalstorage() {
-        let a = localStorage.getItem("allInfo"); //getting "allinfo" as a  key element using get method
+        let a = localStorage.getItem("tasks"); //getting "tasks" as a  key element using get method
         if (typeof a === "undefined" || a === null || a === undefined) //checking the values if null, if there is no key
         {
             return []; //return empty array
@@ -36,47 +36,54 @@ class TaskManager {
         info.dueDate = dueDateFormatted;
         info.status = document.getElementById("status").value;
 
-        this.allInfo.push(info);
-        localStorage.setItem("allInfo", JSON.stringify(this.allInfo)); //stringify converts a JavaScript object or value to a JSON string
-        //setting values to localstorage using "allInfo" key by converting Json.
+        this.tasks.push(info);
+        localStorage.setItem("tasks", JSON.stringify(this.tasks)); //stringify converts a JavaScript object or value to a JSON string
+        //setting values to localstorage using "tasks" key by converting Json.
         $('#createModal').modal('hide');
         homeworkTask.render(); //after saving data
-        console.log(this.allInfo);
+        console.log(this.tasks);
     }
     render = () => {
         let lineItem = "";
-        this.allInfo.forEach(createTaskHtml);
+        this.tasks.forEach(createTaskHtml);
 
         document.getElementById("myToDoList").innerHTML = lineItem;
 
         function createTaskHtml(item, index) //getting each todo list array index key
         {
-            lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success" onclick = "homeworkTask.markAsDone (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
+            lineItem += '<div class="todo-box '+ item.status +' col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success '+ item.status +'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
 
         }
 
     }
-    
-    markAsDone = (item, index) => {
+    DoneToDo = (index) => {
+        this.tasks[index].status = "Done";
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+        homeworkTask.render();
+    }
+
+
+
+    // markAsDone = (item, index) => {
         
-    let toDO = this.allInfo[index];
-        console.log(toDO);
-        this.allInfo.forEach((item) => {
-            if (item.currentId === index) {
-                this.allInfo[item].status = "Done";
-                console.log(this.allInfo[item].status); 
-        }
-        document.body.style.background = "green";
-        // document.getElementById("status").innerHTML = "Done";
-        // const list = document.getElementById("todo-box").classList;
-        // list.add("todo-box-done");
-    })
-    }
+    // let toDO = this.tasks[index];
+    //     console.log(toDO);
+    //     this.tasks.forEach((item) => {
+    //         if (item.currentId === index) {
+    //             this.tasks[item].status = "Done";
+    //             console.log(this.tasks[item].status); 
+    //     }
+    //     document.body.style.background = "green";
+    //     // document.getElementById("status").innerHTML = "Done";
+    //     // const list = document.getElementById("todo-box").classList;
+    //     // list.add("todo-box-done");
+    // })
+    // }
     
     
     
     // edit = (item, index) => {
-    //     let toDO = this.allInfo[index];
+    //     let toDO = this.tasks[index];
     //     console.log(toDO);
     //     $('#createModal').modal('show');
     //     tasks.forEach((item) => {
@@ -88,9 +95,15 @@ class TaskManager {
     // }
 
 deleteToDo = (index) => {
-    this.allInfo.splice(index, 1);
-    localStorage.setItem("allInfo", JSON.stringify(this.allInfo));
-    homeworkTask.render();
+    let deleteConfirm = confirm('Are you sure you want to delete?');
+    if(deleteConfirm) {
+        alert('Action successful!');
+        this.tasks.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+        homeworkTask.render();
+    } else {
+        alert('Action cancelled');
+    }
 } 
 
 }
