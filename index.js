@@ -42,7 +42,7 @@ saveBtn.addEventListener('click', (event) => {
         return false;
     }//validatation for duedate
     else if (dueDate == "" || dueDate == null || theDate > anotherDate) {
-        let UserDate = "Duedate required and should be greator than today";
+        let UserDate = "Duedate required and should be greater than today";
         //alert("You've entered a date that has already been!")
         document.getElementById("validateDate").innerHTML = UserDate;
     }//Validate Status new Date ('2022-04')

@@ -14,13 +14,13 @@
     <header class="myheader">
         <h1 class="h1 display-1 text-center text-white py-3"><b>To do List</b></h1>
         <div class=" text-center text-white py-3">
-            <b>Current Date:</b><span id='current_date'></span>
+            <b>Current Date: </b><span id='current_date'></span>
         </div>
     </header>
     <div class="main-container">
         
         <div class="row">
-            <div class="col-sm-12 col-md-3 text-center py-3"> 
+            <div id="create-a-task" class="col-sm-12 col-md-3 text-center py-3"> 
                 
                 <object type="image/svg+xml" data="assets/images/add.svg" style="width:50%">
                     <!-- Your fall back here -->
@@ -74,23 +74,24 @@
                             <div class="mb-3">
                                 <span>Date</span>
                                 <label for="date" class="form-label">Name</label>
-                                <input type="date" name="date" class="form-control" id="date"><br>
+                                <input type="date" name="date" class="form-control" id="date">
                                 <span id="validateDate"></span>
                             </div>
                             <div class="mb-3">
                                 <span>Status</span>
                                 <label for="status" class="form-label">Name</label>
-                                <select class="form-select" id="status" name="status" aria-label="Assigned">
-                                    <option selected>Open select menu</option>
-                                    <option value="Done">Done</option>
+                                <input type="text" id="status" value="In Progress">
+                                <!-- <select class="form-select" id="status" name="status" aria-label="Assigned"> -->
+                                
+                                    <!-- <option selected>Open select menu</option> -->
+                                    <!-- <option value="Done">Done</option>
                                     <option value="InProgress">In progress</option>
-                                    <option value="NotYetStarted">Not Yet Started</option>
-                                </select>
+                                    <option value="NotYetStarted">Not Yet Started</option> -->
+                                <!-- </select> -->
                                 <span id="validateStatus"></span>
                             </div>
                             <div>
-                                <button type="button" id="saveBtn"  class="btn btn-primary"
-                                    style="float:center">Save</button>
+                                <button type="button" id="saveBtn"  class="btn btn-primary">Save</button>
                             </div>
                         </div>
                 </div>

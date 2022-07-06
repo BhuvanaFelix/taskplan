@@ -41,7 +41,7 @@ class TaskManager {
         //setting values to localstorage using "allInfo" key by converting Json.
         $('#createModal').modal('hide');
         homeworkTask.render(); //after saving data
-        console.log(info);
+        console.log(this.allInfo);
     }
     render = () => {
         let lineItem = "";
@@ -51,22 +51,41 @@ class TaskManager {
 
         function createTaskHtml(item, index) //getting each todo list array index key
         {
-            lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success" onclick = "homeworkTask.editToDo(' + index + ')">Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
+            lineItem += '<div class="todo-box col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success" onclick = "homeworkTask.markAsDone (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
 
         }
 
     }
-    editToDo = (item, index) => {
-        let toDO = this.allInfo[index];
+    
+    markAsDone = (item, index) => {
+        
+    let toDO = this.allInfo[index];
         console.log(toDO);
-        $('#createModal').modal('show');
-        tasks.forEach((item) => {
-            if (item.id === index) {
-                item.name = taskName;
-              }
-        })
-
+        this.allInfo.forEach((item) => {
+            if (item.currentId === index) {
+                this.allInfo[item].status = "Done";
+                console.log(this.allInfo[item].status); 
+        }
+        document.body.style.background = "green";
+        // document.getElementById("status").innerHTML = "Done";
+        // const list = document.getElementById("todo-box").classList;
+        // list.add("todo-box-done");
+    })
     }
+    
+    
+    
+    // edit = (item, index) => {
+    //     let toDO = this.allInfo[index];
+    //     console.log(toDO);
+    //     $('#createModal').modal('show');
+    //     tasks.forEach((item) => {
+    //         if (item.id === index) {
+    //             item.name = taskName;
+    //           }
+    //     })
+
+    // }
 
 deleteToDo = (index) => {
     this.allInfo.splice(index, 1);
