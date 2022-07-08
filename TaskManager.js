@@ -1,13 +1,7 @@
 class TaskManager {
-    constructor(currentId = 0, name, description, assignedTo, dueDate, status) {
-        this.currentId = currentId;
-        this.name = name;
-        this.description = description;
-        this.assignedTo = assignedTo;
-        this.dueDate = dueDate;
-        this.status = status;
+    constructor(currentId = 0) {
         this.tasks = this.getlocalstorage(); //calling local storage
-
+        this.currentId =currentId;
     }
     //function to 
     getlocalstorage() {
@@ -20,7 +14,7 @@ class TaskManager {
     }
     storeValue = () => {
 
-        let info = {};
+        let task = {};
         this.currentId++;
             ////////////////////////////
         let dueDateFormatted = new Date(document.getElementById("date").value);
@@ -30,13 +24,13 @@ class TaskManager {
         dueDateFormatted = dd + '/' + mm + '/' + yyyy;
         console.log(dueDateFormatted);
         ////////////////////////////
-        info.name = document.getElementById("name").value;
-        info.description = document.getElementById("description").value;
-        info.assignedTo = document.getElementById("formAssigned").value;
-        info.dueDate = dueDateFormatted;
-        info.status = document.getElementById("status").value;
+        task.name = document.getElementById("name").value;
+        task.description = document.getElementById("description").value;
+        task.assignedTo = document.getElementById("formAssigned").value;
+        task.dueDate = dueDateFormatted;
+        task.status = document.getElementById("status").value;
 
-        this.tasks.push(info);
+        this.tasks.push(task);
         localStorage.setItem("tasks", JSON.stringify(this.tasks)); //stringify converts a JavaScript object or value to a JSON string
         //setting values to localstorage using "tasks" key by converting Json.
         $('#createModal').modal('hide');
@@ -51,38 +45,39 @@ class TaskManager {
 
         function createTaskHtml(item, index) //getting each todo list array index key
         {
-            lineItem += '<div class="todo-box '+ item.status +' col-sm-6 col-md-3"><h5 class="card-title">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success '+ item.status +'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
+            lineItem += '<div class="todo-box '+ item.status +' col-sm-6 col-md-3">  <button type="button" class="material-symbols-outlined edit-button material-icons" onclick = "homeworkTask.editTodo(' + index + ')" data-toggle="modal" data-target="#EditTask">edit</button>    <h5 class="card-title pull-right">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + item.dueDate + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success '+ item.status +'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
 
         }
 
     }
+    //Done button coding 
     DoneToDo = (index) => {
         this.tasks[index].status = "Done";
         localStorage.setItem("tasks", JSON.stringify(this.tasks));
         homeworkTask.render();
 
     }
-    
-
-
-
-    // markAsDone = (item, index) => {
-        
-    // let toDO = this.tasks[index];
-    //     console.log(toDO);
-    //     this.tasks.forEach((item) => {
-    //         if (item.currentId === index) {
-    //             this.tasks[item].status = "Done";
-    //             console.log(this.tasks[item].status); 
-    //     }
-    //     document.body.style.background = "green";
-    //     // document.getElementById("status").innerHTML = "Done";
-    //     // const list = document.getElementById("todo-box").classList;
-    //     // list.add("todo-box-done");
-    // })
-    // }
-    
-    
+    //getting task by ID
+    getTaskById(taskId){
+        let foundTask;
+        for (let i = 0; i < this.tasks.length; i++) {
+          const task = this.tasks[i];
+          if(task.id === taskId){
+            foundTask = task;
+          }
+        }
+        return foundTask;
+      } 
+    //editing the task that we need to edit.
+    editTodo(taskId, name, description, assignedTo, dueDate, status){
+        $('#editModal').modal('show');
+        let task = this.getTaskById(taskId);
+        task.name = this.tasks[taskId].name;
+        task.description = this.tasks[taskId].description;
+        task.assignedTo = this.tasks[taskId].assignedTo;
+        task.dueDate = this.tasks[taskId].dueDate;
+        task.status = this.tasks[taskId].status;
+      }
     
     // edit = (item, index) => {
     //     let toDO = this.tasks[index];
