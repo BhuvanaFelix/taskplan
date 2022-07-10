@@ -8,7 +8,7 @@ document.getElementById('current_date').innerHTML = currentDate;
 
 const myvalidate = (obj) => {
 
-    if (obj.value == "" || obj.value.length < 8)
+    if (obj.value == "" || obj.value.length < obj.dataset.length)
         obj.classList.add("is-invalid");
     else
         obj.classList.remove("is-invalid");
@@ -17,7 +17,9 @@ const myvalidate = (obj) => {
 let saveBtn = document.getElementById("saveBtn")
 saveBtn.addEventListener('click', (event) => {
     //const validateTaskForm = () => {
-    event.preventDefault();
+    event.preventDefault(); //to stop default HTML actions that belongs to the event will not occur.
+
+    homeworkTask.resetErrors(); // to reset all error msgs before doing validations
     let name = document.getElementById("name").value;
     let description = document.getElementById("description").value;
     let formAssigned = document.getElementById("formAssigned");

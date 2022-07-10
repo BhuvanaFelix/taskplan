@@ -27,7 +27,7 @@
                     <img src="assets/images/add.svg" />
                 </object>
                 <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                <button type="button" class="btn btn-primary" onclick="homeworkTask.addTodo();">
                     Create a Task
                 </button>
                 
@@ -41,24 +41,25 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create a Task</h5>
+                    <h5 class="modal-title" id="task_title">Create a Task</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="container">
+                    <form class="container" id="taskForm">
                         <div class="row mx-auto py-3">
                             <div class="mb-3">
                                 <span>Task</span>
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" onblur="myvalidate(this)" class="form-control" id="name">
-                                <span id="validateName"></span>
+                                <input type="hidden"  id="editIndex">
+                                <input type="text" name="name" onblur="myvalidate(this)" data-length = '8' class="form-control" id="name">
+                                <span class = "error" id="validateName"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="3" id="description"></textarea>
-                                <span id="validateDescription"></span>
+                                <textarea name="description" class="form-control" onblur="myvalidate(this)" data-length = '15' rows="3" id="description"></textarea>
+                                <span class = "error" id="validateDescription"></span>
                             </div>
                             <div class="mb-3">
                                 <label for="assigned" class="form-label">Assigned To</label>
@@ -70,26 +71,25 @@
                                     <option value="Edom">Edom</option>
                                     <option value="Livia">Livia</option>
                                 </select>
-                                <span id="validateAssigned"></span>
+                                <span class = "error" id="validateAssigned"></span>
                             </div>
                             <div class="mb-3">
                                 <span>Date</span>
                                 <label for="date" class="form-label">Name</label>
                                 <input type="date" name="date" class="form-control" id="date">
-                                <span id="validateDate"></span>
+                                <span class = "error" id="validateDate"></span>
                             </div>
                             <div class="mb-3">
                                 <span>Status</span>
                                 <label for="status" class="form-label">Name</label>
                                 <!-- <input type="text" id="status" value="In Progress"> -->
-                                <select class="form-select" id="formAssigned" aria-label="Assigned">
+                                <select class="form-select" id="status" name="status" aria-label="Assigned">
                                     <option selected>Open select menu</option>
-                                    <option value="Ando">Ando</option>
-                                    <option value="Bhuvana">Bhuvana</option>
-                                    <option value="Edom">Edom</option>
-                                    <option value="Livia">Livia</option>
+                                    <option value="Done">Done</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Not Yet Started">Not Yet Started</option> 
                                 </select>
-                                <span id="validateStatus"></span>
+                                <span class = "error" id="validateStatus"></span>
                             </div>
                             <div>
                                 <button type="button" id="saveBtn"  class="btn btn-primary">Save</button>
@@ -101,70 +101,7 @@
         </div>
     </div>
    <!-- End of Add New task Modal -->
-    <!-- Edit task Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Task</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="container">
-                        <div class="row mx-auto py-3">
-                            <div class="mb-3">
-                                <span>Task</span>
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" onblur="myvalidate(this)" class="form-control" id="name">
-                                <span id="validateName"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" rows="3" id="description"></textarea>
-                                <span id="validateDescription"></span>
-                            </div>
-                            <div class="mb-3">
-                                <label for="assigned" class="form-label">Assigned To</label>
-                                <!--Select Dropdown-->
-                                <select class="form-select" id="formAssigned" aria-label="Assigned">
-                                    <option selected>Open select menu</option>
-                                    <option value="Ando">Ando</option>
-                                    <option value="Bhuvana">Bhuvana</option>
-                                    <option value="Edom">Edom</option>
-                                    <option value="Livia">Livia</option>
-                                </select>
-                                <span id="validateAssigned"></span>
-                            </div>
-                            <div class="mb-3">
-                                <span>Date</span>
-                                <label for="date" class="form-label">Name</label>
-                                <input type="date" name="date" class="form-control" id="date">
-                                <span id="validateDate"></span>
-                            </div>
-                            <div class="mb-3">
-                                <span>Status</span>
-                                <label for="status" class="form-label">Name</label>
-                                <!-- <input type="text" id="status" value="In Progress"> -->
-                                <select class="form-select" id="status" name="status" aria-label="Assigned">
-                                    <option selected>Open select menu</option>
-                                    <option value="Done">Done</option>
-                                    <option value="InProgress">In progress</option>
-                                    <option value="NotYetStarted">Not Yet Started</option> 
-                                </select>
-                                <span id="validateStatus"></span>
-                            </div>
-                            <div>
-                                <button type="button" id="saveBtn"  class="btn btn-primary">Save</button>
-                            </div>
-                        </div>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+   
     <!--End Edit task Modal-->
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript" src="./TaskManager.js"></script>
