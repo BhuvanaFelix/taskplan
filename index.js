@@ -8,12 +8,17 @@ document.getElementById('current_date').innerHTML = currentDate;
 
 const myvalidate = (obj) => {
 
-    if (obj.value == "" || obj.value.length < obj.dataset.length)
-        obj.classList.add("is-invalid");
-    else
-        obj.classList.remove("is-invalid");
 
+    if (obj.value == "" || obj.value.length < obj.dataset.length) {
+        obj.classList.add("is-invalid");
+        let text = "Enter name with more than 8 characters.";
+        document.getElementById("validateName").innerHTML = text;
+    }
+    else {
+        obj.classList.remove("is-invalid");
+    }
 }
+
 let saveBtn = document.getElementById("saveBtn")
 saveBtn.addEventListener('click', (event) => {
     //const validateTaskForm = () => {
@@ -32,7 +37,7 @@ saveBtn.addEventListener('click', (event) => {
         let text = "Enter name with more than 8 characters."
         document.getElementById("validateName").innerHTML = text;
     }//Validate Description 
-    else if (description === "" || description.length < 15 || description == null) {
+    if (description === "" || description.length < 15 || description == null) {
         let textdesc = "Enter value more than 15 characters."
         document.getElementById("validateDescription").innerHTML = textdesc;
     }
