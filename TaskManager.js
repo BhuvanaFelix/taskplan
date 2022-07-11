@@ -11,7 +11,7 @@ class TaskManager {
         }
         return JSON.parse(a);//parse is converting a string into JSON object 
     }
-    
+
     resetErrors = () => {
         //empty error messages before validation start.
         let errorEle = document.querySelectorAll('.error');
@@ -41,7 +41,7 @@ class TaskManager {
         if (this.taskIndex === "") {
             //add new task if the value is null
             this.tasks.push(task);
-        } 
+        }
         else {
             //Updating or replacing existing index task.
             this.tasks[this.taskIndex] = task;
@@ -65,7 +65,19 @@ class TaskManager {
             let mm = dueDateFormatted.getMonth() + 1;
             let dd = dueDateFormatted.getDate();
             dueDateFormatted = dd + '/' + mm + '/' + yyyy;
-            lineItem += '<div class="todo-box ' + item.status + ' col-sm-6 col-md-3">  <h5 class="card-title pull-right">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + dueDateFormatted + '<br><b>Status: </b>' + item.status + '</p> <button type="button" class="btn btn-primary" onclick = "homeworkTask.editTodo(' + index + ')" data-toggle="modal" data-target="#EditTask">Edit</button>    <a href = "#" class="btn btn-success ' + item.status + 'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
+            lineItem += 
+            `<div class="todo-box ${item.status} col-sm-6 col-md-3">  
+                <h5 class="card-title pull-right">${item.name}</h5>
+                <p class="card-text"><br>
+                <b> Description: </b>${item.description} <br>
+                <b>Assigned to: </b>${item.assignedTo}<br>
+                <b>Date: </b>${dueDateFormatted}<br>
+                <b>Status: </b>${item.status }
+                </p> 
+                <button type="button" class="btn btn-primary" onclick = "homeworkTask.editTodo(${index})" data-toggle="modal" data-target="#EditTask">Edit</button>
+                <a href = "#" class="btn btn-success ${item.status}hide " onclick = "homeworkTask.DoneToDo (${index})">Done</a> 
+                <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(${index}); return false" > Delete </a>
+            </div>`;
 
         }
 
@@ -111,15 +123,15 @@ class TaskManager {
         document.getElementById("description").value = this.tasks[taskIndex].description;
         document.getElementById("formAssigned").value = this.tasks[taskIndex].assignedTo;
         let dueDateFormatted = new Date(this.tasks[taskIndex].dueDate);
-       /* console.log(`Before formatting${dueDateFormatted}`);
-        let yyyy = dueDateFormatted.getFullYear();
-        //If the month is 9, it needs to be set as 09 not 9 simply. So it applies for day field also.
-        let dd = ("0" + dueDateFormatted.getDate()).slice(-2);
-        let mm = ("0" + dueDateFormatted.getMonth()).slice(-2);
-        //format date
-        //Date control in HTML 5 accepts in the format of Year - month - day 
-        dueDateFormatted = yyyy + '-' + mm + '-' + dd;
-        console.log(dueDateFormatted);*/
+        /* console.log(`Before formatting${dueDateFormatted}`);
+         let yyyy = dueDateFormatted.getFullYear();
+         //If the month is 9, it needs to be set as 09 not 9 simply. So it applies for day field also.
+         let dd = ("0" + dueDateFormatted.getDate()).slice(-2);
+         let mm = ("0" + dueDateFormatted.getMonth()).slice(-2);
+         //format date
+         //Date control in HTML 5 accepts in the format of Year - month - day 
+         dueDateFormatted = yyyy + '-' + mm + '-' + dd;
+         console.log(dueDateFormatted);*/
         document.getElementById("date").value = this.tasks[taskIndex].dueDate;
         document.getElementById("status").value = this.tasks[taskIndex].status;
         //after assigning the values to innerHTML show the modal.
