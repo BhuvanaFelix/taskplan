@@ -38,7 +38,7 @@ class TaskManager {
         task.dueDate = document.getElementById("date").value;
         task.status = document.getElementById("status").value;
         //for editing task getting element from form using DOM element
-        if (this.taskIndex == "") {
+        if (this.taskIndex === "") {
             //add new task if the value is null
             this.tasks.push(task);
         } else {
@@ -64,7 +64,7 @@ class TaskManager {
             let mm = dueDateFormatted.getMonth() + 1;
             let dd = dueDateFormatted.getDate();
             dueDateFormatted = dd + '/' + mm + '/' + yyyy;
-            lineItem += '<div class="todo-box ' + item.status + ' col-sm-6 col-md-3">  <button type="button" class="material-symbols-outlined edit-button material-icons" onclick = "homeworkTask.editTodo(' + index + ')" data-toggle="modal" data-target="#EditTask">edit</button>    <h5 class="card-title pull-right">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + dueDateFormatted + '<br><b>Status: </b>' + item.status + '</p> <a href = "#" class="btn btn-success ' + item.status + 'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Mark as Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
+            lineItem += '<div class="todo-box ' + item.status + ' col-sm-6 col-md-3">  <h5 class="card-title pull-right">' + item.name + '</h5><p class="card-text"><br><b> Description: </b>' + item.description + ' <br><b>Assigned to: </b>' + item.assignedTo + '<br><b>Date: </b> ' + dueDateFormatted + '<br><b>Status: </b>' + item.status + '</p> <button type="button" class="btn btn-primary" onclick = "homeworkTask.editTodo(' + index + ')" data-toggle="modal" data-target="#EditTask">Edit</button>    <a href = "#" class="btn btn-success ' + item.status + 'hide " onclick = "homeworkTask.DoneToDo (' + index + ')">Done</a> <a hreaf ="#" class ="btn btn-danger" onclick = "homeworkTask.deleteToDo(' + index + '); return false" > Delete </a></div>';
 
         }
 
