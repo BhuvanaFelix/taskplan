@@ -16,6 +16,7 @@ const myvalidate = (obj) => {
     }
     else {
         obj.classList.remove("is-invalid");
+        document.getElementById("validateName").innerHTML = "";
     }
 }
 
@@ -37,7 +38,7 @@ saveBtn.addEventListener('click', (event) => {
         let text = "Enter name with more than 8 characters."
         document.getElementById("validateName").innerHTML = text;
     }//Validate Description 
-    if (description === "" || description.length < 15 || description == null) {
+    else if (description === "" || description.length < 15 || description == null) {
         let textdesc = "Enter value more than 15 characters."
         document.getElementById("validateDescription").innerHTML = textdesc;
     }
